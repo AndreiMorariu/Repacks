@@ -110,9 +110,7 @@ export default function App() {
 		const maxPagesToShow = 5;
 
 		if (totalPages <= maxPagesToShow) {
-			for (let i = 1; i <= totalPages; i++) {
-				pageNumbers.push(i);
-			}
+			for (let i = 1; i <= totalPages; i++) pageNumbers.push(i);
 		} else {
 			pageNumbers.push(1);
 
@@ -123,21 +121,14 @@ export default function App() {
 
 			const endPage = Math.min(startPage + maxPagesToShow - 3, totalPages - 1);
 
-			if (endPage - startPage < maxPagesToShow - 3) {
+			if (endPage - startPage < maxPagesToShow - 3)
 				startPage = Math.max(endPage - (maxPagesToShow - 3) + 1, 2);
-			}
 
-			if (startPage > 2) {
-				pageNumbers.push("...");
-			}
+			if (startPage > 2) pageNumbers.push("...");
 
-			for (let i = startPage; i <= endPage; i++) {
-				pageNumbers.push(i);
-			}
+			for (let i = startPage; i <= endPage; i++) pageNumbers.push(i);
 
-			if (endPage < totalPages - 1) {
-				pageNumbers.push("...");
-			}
+			if (endPage < totalPages - 1) pageNumbers.push("...");
 
 			pageNumbers.push(totalPages);
 		}
@@ -152,7 +143,7 @@ export default function App() {
 					<h1 className="text-4xl font-bold">FitGirl Repacks</h1>
 					<div className="flex items-center gap-6">
 						<h2 className="text-xl font-semibold">
-							{games.length.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}{" "}
+							{games.length.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
 							Repacks
 						</h2>
 						<ModeToggle />
